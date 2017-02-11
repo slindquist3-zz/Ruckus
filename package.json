@@ -1,0 +1,38 @@
+{
+  "name": "twitter-locationer",
+  "version": "1.0.0",
+  "description": "practice jquery ajax api",
+  "main": "homepage.js",
+  "engines": {
+    "node": "6.x",
+    "npm": "3.x"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "test": "mocha -R mocha-multi --reporter-options nyan=-,json=.results.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EoghanL/TwitterLocationer"
+  },
+  "keywords": [
+    "js",
+    "ajax",
+    "jquery",
+    "callbacks"
+  ],
+  "author": "EoghanL",
+  "bugs": {
+    "url": "https://github.com/EoghanL/TwitterLocationer/issues"
+  },
+  "dependencies": {
+    "expect": "^1.20.2",
+    "handlebars": "^4.0.5",
+    "jquery": "^3.1.0",
+    "jsdom": "^9.4.1",
+    "mocha": "^2.5.3",
+    "mocha-jsdom": "^1.1.0",
+    "mocha-multi": "^0.9.0",
+    "sinon": "^1.17.4"
+  }
+}
