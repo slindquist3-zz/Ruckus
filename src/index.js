@@ -1,11 +1,12 @@
 import _ from 'lodash'
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
-import YTSearch from 'youtube-api-search'
 import SearchBar from './components/search_bar'
-import VideoList from './components/video_list'
-import VideoDetail from './components/video_detail'
-const API_KEY = "AIzaSyAsVycCmDvUxzckzTGduS-iHQoeOH9vLLM"
+import Map from './components/map'
+
+const GOOGLE_MAPS_API_KEY = "AIzaSyAlx2vCl94PBu-kH44i1EnxkDmbPcIzgQg"
+const TWITTER_API_KEY = ""
+
 
 class App extends Component {
 
@@ -13,33 +14,25 @@ class App extends Component {
     super(props);
 
     this.state = {
-      videos: [],
-      selectedVideo: null
+      coordinates: [],
+      term: ""
     };
 
-    this.videoSearch('surfbaords');
   }
 
-  videoSearch(term) {
-    YTSearch({key: API_KEY, term: term}, (videos) => {
+  twitterAPICall(TWITTER_API_KEY, term) {
       this.setState({
         videos: videos,
-        selectedVideo: videos[0]
+        coordinates: ""//parsed results from Twitter API CALL
       })
-    })
   }
 
 
   render() {
-
-    const videoSearch = _.debounce((term) => {this.videoSearch(term)}, 300)
       return (
         <div>
-          <SearchBar onSearchTermChange={videoSearch}/>
-          <VideoDetail video={this.state.selectedVideo}/>
-          <VideoList
-            onVideoSelect={ selectedVideo => this.setState({selectedVideo}) }
-            videos={this.state.videos}/>
+          <SearchBar />
+          <Map coordinates={this.state.coordinates}/>
         </div>
       );
     }

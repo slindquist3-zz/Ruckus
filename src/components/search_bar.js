@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class SearchBar extends Component {
+export default class SearchBar extends Component {
 
   constructor(props) {
     super(props);
@@ -11,18 +11,14 @@ class SearchBar extends Component {
 
   render() {
     return  (
-      <div className = "search-bar">
-        Search <input
-          value = {this.state.term}
-          onChange={event => this.oninputChange(event.target.value)}/>
+      <div className = "search-bar">Search
+        <input value = {this.state.term} onClick={event => this.handleSubmit(event.target.value)}/>
+        <input type="submit"/>
       </div>
       );
     }
 
-    oninputChange(term) {
+    handleSubmit(term) {
       this.setState({term});
-      this.props.onSearchTermChange(term);
     }
   }
-
-export default SearchBar;

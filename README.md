@@ -1,3 +1,3 @@
 # YouTube Clone
 
-A simple clone of YouTube using React and an API call. 
+A simple clone of YouTube using React and an API call.
